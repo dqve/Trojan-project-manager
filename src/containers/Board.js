@@ -38,7 +38,7 @@ class Board extends React.Component {
       const id = e.dataTransfer.getData('id');
       const tickets = this.state.tickets.filter(ticket => {
           if (ticket.id === id) {
-              ticket.board = boardId;
+              ticket.board = laneId;
           }
           return ticket;
       });
@@ -54,7 +54,7 @@ class Board extends React.Component {
     return (
       <BoardWrapper>
         {lanes.map(lane => (
-          <Lane 
+          <Lane
             key={lane.id}
             laneId={lane.id}
             title={lane.title}
