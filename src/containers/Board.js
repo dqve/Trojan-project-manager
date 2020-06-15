@@ -32,6 +32,10 @@ class Board extends React.Component {
     e.dataTransfer.setData('id', id);
   };
 
+  onDragOver = e => {
+    e.preventDefault();
+  };
+
 
   render() {
     const { lanes, loading, error } = this.props;
@@ -44,6 +48,7 @@ class Board extends React.Component {
             loading={loading}
             error={error}
             onDragStart={this.onDragStart}
+            onDragOver={this.onDragOver}
             tickets={this.state.tickets.filter(ticket => ticket.lane === lane.id)}
           />
         ))}
