@@ -30,13 +30,16 @@ class Board extends React.Component {
 
   onDragStart = (e, id) => {
     e.dataTransfer.setData('id', id);
+    console.log("draging started")
   };
 
   onDragOver = e => {
     e.preventDefault();
+    console.log("draging stopped")
   };
 
   onDrop = (e, laneId) => {
+      console.log("object dropped")
       const id = e.dataTransfer.getData('id');
       const tickets = this.state.tickets.filter(ticket => {
           if (ticket.id === id) {
