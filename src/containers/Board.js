@@ -28,7 +28,9 @@ class Board extends React.Component {
     }
   }
 
-  
+  onDragStart = (e, id) => {
+    e.dataTransfer.setData('id', id);
+  };
 
   onDragOver = e => {
     e.preventDefault();
