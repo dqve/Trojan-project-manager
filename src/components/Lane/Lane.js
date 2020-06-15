@@ -32,7 +32,7 @@ const Alert = styled.div`text-align: center;`;
     <Title>{title}</Title>
     {(loading || error) && <Alert>{loading ? 'Loading...' : error}</Alert>}
     <TicketsWrapper>
-      {tickets.map(ticket => <Ticket key={ticket.id} onDragStart={onDragStart} ticket={ticket} />)}
+      {tickets.map(ticket => <Ticket key={ticket.id} onDragStarting={onDragStart} ticket={ticket} />)}
     </TicketsWrapper>
   </LaneWrapper>
 );
