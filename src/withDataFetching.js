@@ -15,8 +15,8 @@ export default function withDataFetching(WrappedComponent) {
 
         async componentDidMount() {
             try {
-                const data = await fetch((this.props.dataSource);
-                const data = await data.json();
+                const data = await fetch(this.props.dataSource);
+                const dataJSON = await data.json();
 
                 if (dataJSON) {
                     this.setState({
@@ -24,7 +24,8 @@ export default function withDataFetching(WrappedComponent) {
                         loading: false,
                     });
                 }
-            } catch (error) {
+            }
+            catch (error) {
                 this.setState({
                     loading: false,
                     error: error.message,
@@ -32,6 +33,16 @@ export default function withDataFetching(WrappedComponent) {
             }
         }
 
-    }
-
+	    render() {
+			const { data, loading, error } = this.state;
+			return (
+				<WrappedComponent
+					data={data}
+					loading={loading}
+					error={error}
+					{...this.props}
+				/>
+			);
+		}
+  	}
 }
