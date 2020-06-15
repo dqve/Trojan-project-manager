@@ -3,7 +3,8 @@ import React from 'react'
 
 export default function withDataFetching(WrappedComponent) {
 
-    return class extends React.Component {
+    class WithDataFetching extends React.Component {
+
         constructor(props) {
             super(props);
             this.state = {
@@ -45,4 +46,9 @@ export default function withDataFetching(WrappedComponent) {
 			);
 		}
   	}
+
+    WithDataFetching.displayName =`WithDataFetching(${WrappedComponent.name})`;
+      
+    return WithDataFetching;
+
 }
