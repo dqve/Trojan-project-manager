@@ -25,6 +25,6 @@ const Ticket = ({ marginRight, onDragStart, ticket }) => (
 	<Title>{ticket.title}</Title>
 	<Body>{ticket.body}</Body>
 	</TicketWrapper>
-);
+)
 
-export default Ticket;
+export default Ticket
