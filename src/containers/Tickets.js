@@ -14,10 +14,14 @@ const TicketsWrapper = styled.div`
 
 const Alert = styled.div`text-align: center;`
 
+const onDragStart = (e, id) => {
+    e.preventDefault()
+  };
+
 const Tickets = ({ loading, data, error }) => (
 	<TicketsWrapper>
 		{(loading || error) && <Alert>{loading ? 'Loading...' : error}</Alert>}
-		{data.map(ticket => <Ticket key={ticket.id}  marginRight ticket={ticket}/>)}
+		{data.map(ticket => <Ticket key={ticket.id}  marginRight ticket={ticket} onDragStart={this.onDragStart}/>)}
 	</TicketsWrapper>
 	)
 
