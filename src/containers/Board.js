@@ -39,7 +39,6 @@ class Board extends React.Component {
   };
 
   onDrop = (e, laneId) => {
-      console.log("object dropped")
       const id = e.dataTransfer.getData('id');
       const tickets = this.state.tickets.filter(ticket => {
           if (ticket.id === id) {
@@ -51,6 +50,7 @@ class Board extends React.Component {
           ...this.state,
           tickets,
       });
+      console.log("object dropped")
   };
 
 
