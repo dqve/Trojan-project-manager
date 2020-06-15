@@ -8,17 +8,13 @@ const TicketWrapper = styled.div`
 	&:not(:last-child) {
 		margin-bottom: 5%;
 		margin-right: ${props => !!props.marginRight ? '1%' : '0'};
-	}
-`;
+	}`
 
 const Title = styled.h3`
 	width: 100%;
-	margin: 0px;
-`;
+	margin: 0px;`
 
-const Body = styled.p`
-	width: 100%;
-`;
+const Body = styled.p`width: 100%;`
 
 const Ticket = ({ marginRight, onDragStart, ticket }) => (
 	<TicketWrapper
