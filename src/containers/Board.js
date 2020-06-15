@@ -13,18 +13,38 @@ const BoardWrapper = styled.div`
     flex-direction: column;
   }`
 
-const Board = ({ lanes, loading, error, data }) => (
-  <BoardWrapper>
-    {lanes.map(lane => (
-      <Lane 
-        key={lane.id}
-        title={lane.title}
-        loading={loading}
-        error={error}
-        tickets={data.filter(ticket => ticket.lane === lane.id)}
-      />
-    ))}
-  </BoardWrapper>
-);
+class Board extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      tickets: [],
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.data !== this.props.data) {
+      this.setState({ tickets: this.props.data });
+    }
+  }
+
+
+  render() {
+    const { lanes, loading, data, error } = this.props;
+    return (
+      <BoardWrapper>
+        {lanes.map(lane => (
+          <Lane 
+            key={lane.id}
+            title={lane.title}
+            loading={loading}
+            error={error}
+            tickets={data.filter(ticket => ticket.lane === lane.id)}
+          />
+        ))}
+      </BoardWrapper>
+    );
+  }
+}
 
 export default withDataFetching(Board)
