@@ -18,10 +18,10 @@ const onDragStart = (e, id) => {
     e.preventDefault()
   };
 
-const Tickets = ({ loading, data, error }) => (
+const Tickets = ({ loading, data, onDragStart, error }) => (
 	<TicketsWrapper>
 		{(loading || error) && <Alert>{loading ? 'Loading...' : error}</Alert>}
-		{data.map(ticket => <Ticket key={ticket.id}  marginRight ticket={ticket} onDragStart={this.onDragStart}/>)}
+		{data.map(ticket => <Ticket key={ticket.id}  marginRight ticket={ticket} onDragStart={onDragStart}/>)}
 	</TicketsWrapper>
 	)
 
