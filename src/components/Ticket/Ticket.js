@@ -16,10 +16,10 @@ const Title = styled.h3`
 
 const Body = styled.p`width: 100%;`
 
-const Ticket = ({ marginRight, onDragStarting, ticket }) => (
+const Ticket = ({ marginRight, onDragStart, ticket }) => (
 	<TicketWrapper
 		draggable
-		onDragStart={e => onDragStarting(e, ticket.id)}
+		onDragStart={e => onDragStart(e, ticket.id)}
 		marginRight={marginRight}
 	>
 		<Title>{ticket.title}</Title>
