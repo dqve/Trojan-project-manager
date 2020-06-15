@@ -30,7 +30,7 @@ class Board extends React.Component {
 
 
   render() {
-    const { lanes, loading, data, error } = this.props;
+    const { lanes, loading, error } = this.props;
     return (
       <BoardWrapper>
         {lanes.map(lane => (
@@ -39,7 +39,7 @@ class Board extends React.Component {
             title={lane.title}
             loading={loading}
             error={error}
-            tickets={data.filter(ticket => ticket.lane === lane.id)}
+            tickets={this.state.tickets.filter(ticket => ticket.lane === lane.id)}
           />
         ))}
       </BoardWrapper>
